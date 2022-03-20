@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 
-export default function AlarmOff() {
+const AlarmOff = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>  </Text>
@@ -19,7 +19,7 @@ export default function AlarmOff() {
                     
       <StatusBar style="auto" />
       <Image 
-        source = {require('./assets/rooster-wakeup.png')} style={styles.image} />
+        source = {require('../assets/rooster-wakeup.png')} style={styles.image} />
 
       <TouchableOpacity
           style={styles.topButton}
@@ -89,3 +89,5 @@ const styles = StyleSheet.create({
   },
 
 });
+
+export default AlarmOff; 

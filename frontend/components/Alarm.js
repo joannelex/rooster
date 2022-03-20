@@ -5,16 +5,16 @@ import Swipeable from 'react-native-swipeable-row';
 
 
 
-const Alarm = () => {
+const Alarm = (props) => {
 
     return(
       <Swipeable 
         rightButtons = {[
             <TouchableOpacity style={[styles.deleteButton, {backgroundColor: '#156775'}]}>
-              <Text style={styles.buttonText}>delete</Text>
+              <Text style={styles.buttonText}>x</Text>
             </TouchableOpacity>,
             <TouchableOpacity style={[styles.deleteButton, {backgroundColor: '#FFCA05'}]}>
-              <Text style={styles.buttonText}>close</Text>
+              <Text style={styles.buttonText}>cancel</Text>
             </TouchableOpacity>
       ]}>
         <SafeAreaView style={styles.container}>
@@ -22,7 +22,8 @@ const Alarm = () => {
             <View style={styles.ToggleView}>
             <AlarmSwitch /> 
             </View>
-            <Text style={styles.TextTime}>09:00 {'\n'}am</Text>
+            
+            <Text style={styles.TextTime}>{props.time} {'\n'}{props.AmPm}</Text>
             </ SafeAreaView>
         </SafeAreaView>
       </Swipeable>
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "flex-start", 
       },
-      
+
     ToggleView: {
         alignSelf: 'center',
         width: "10%",
@@ -74,11 +75,13 @@ const styles = StyleSheet.create({
       width: '20%',
       height: '10%',
       marginTop: 22,
+      // borderRadius: 15,
     },
     buttonText: {
       color: 'white', 
       fontSize: 13, 
       alignSelf: 'center',
+      borderRadius: 15,
     },
       
   
