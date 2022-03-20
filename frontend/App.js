@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import AlarmList from './components/AlarmList';
 import AddAlarm from './components/AddAlarm';
+import CreateAlarm from './components/CreateAlarm';
+
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, LayoutAnimation } from 'react-native';
 
 export default function App() {
@@ -13,7 +15,7 @@ export default function App() {
       <Text style={styles.mainName}>rooster.</Text>
       <StatusBar style="auto" />
       <AlarmList />
-      <AddAlarm />
+      <CreateAlarm />
     </SafeAreaView>
   );
 } 

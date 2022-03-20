@@ -23,9 +23,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 45,
-    // lineHeight: 10,
     fontWeight: 'bold',
-    // letterSpacing: 0.25,
     color: '#DD2C14',
     alignSelf: 'center',
     opacity: 0.75,

@@ -5,7 +5,7 @@ import Swipeable from 'react-native-swipeable-row';
 
 
 
-const Alarm = () => {
+const Alarm = (props) => {
 
     return(
       <Swipeable 
@@ -22,7 +22,8 @@ const Alarm = () => {
             <View style={styles.ToggleView}>
             <AlarmSwitch /> 
             </View>
-            <Text style={styles.TextTime}>09:00 {'\n'}am</Text>
+            
+            <Text style={styles.TextTime}>{props.time} {'\n'}{props.AmPm}</Text>
             </ SafeAreaView>
         </SafeAreaView>
       </Swipeable>
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "flex-start", 
       },
-      
+
     ToggleView: {
         alignSelf: 'center',
         width: "10%",
