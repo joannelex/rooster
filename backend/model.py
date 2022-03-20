@@ -10,6 +10,7 @@ from sklearn.model_selection import (
     train_test_split,
 )
 from sklearn.neighbors import NearestNeighbors
+from sklearn.impute import KNNImputer
 plt.style.use("seaborn")
 
 new_title = ""
@@ -17,7 +18,7 @@ new_artist = ""
 new_rxnTime = 0
 
 # read spotify data and store as dataframe
-spotify_df = pd.read_csv("spotify.csv")
+spotify_df = pd.read_csv("backend/spotify.csv")
 
 # separate dataframe into features and labels
 features = spotify_df.drop(columns = ["song_title", "artist"])
