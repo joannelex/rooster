@@ -1,0 +1,6 @@
+module Pods_Rooster {
+  umbrella header "Pods-Rooster-umbrella.h"
+
+  export *
+  module * { export * }
+}
