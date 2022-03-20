@@ -30,6 +30,8 @@ export default class App extends Component {
     this.getCurrentTime();
   }
 
+
+
   getCurrentTime = () => {
     let Hr = new Date().getHours();
     let Min = new Date().getMinutes();
