@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View, SafeAreaView } from "react-native";
 import AlarmTextInput  from "./AlarmTextInput";
 import Alarm from './Alarm'
 
@@ -8,7 +8,7 @@ const CreateAlarm = () => {
   const [alarm, setAlarm] = useState([<Alarm />, <Alarm />, <Alarm />]);
   
   return (
-    <View style={styles.centeredView}>
+    <SafeAreaView style={styles.centeredView}>
 
       <Modal
         animationType="slide"
@@ -43,7 +43,7 @@ const CreateAlarm = () => {
       >
         <Text style={styles.textStyle}>+</Text>
       </Pressable>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
+    // position:'absolute'
   },
   modalView: {
     margin: 20,
@@ -79,6 +80,9 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70, 
     backgroundColor: '#FFCA0580',
+    position: 'relative',
+    // marginTop: ,
+    marginBottom: -150
   },
   buttonOpen: {
     backgroundColor: "#FFCA0580",

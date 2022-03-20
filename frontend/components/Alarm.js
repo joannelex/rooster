@@ -75,11 +75,13 @@ const styles = StyleSheet.create({
       width: '20%',
       height: '10%',
       marginTop: 22,
+      // borderRadius: 15,
     },
     buttonText: {
       color: 'white', 
       fontSize: 13, 
       alignSelf: 'center',
+      borderRadius: 15,
     },
       
   
