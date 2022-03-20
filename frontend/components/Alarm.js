@@ -11,10 +11,10 @@ const Alarm = () => {
       <Swipeable 
         rightButtons = {[
             <TouchableOpacity style={[styles.deleteButton, {backgroundColor: '#156775'}]}>
-              <Text style={styles.buttonText}>delete</Text>
+              <Text style={styles.buttonText}>x</Text>
             </TouchableOpacity>,
             <TouchableOpacity style={[styles.deleteButton, {backgroundColor: '#FFCA05'}]}>
-              <Text style={styles.buttonText}>close</Text>
+              <Text style={styles.buttonText}>cancel</Text>
             </TouchableOpacity>
       ]}>
         <SafeAreaView style={styles.container}>
