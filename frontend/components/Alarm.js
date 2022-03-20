@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "flex-start", 
       },
+      
     ToggleView: {
         alignSelf: 'center',
         width: "10%",
