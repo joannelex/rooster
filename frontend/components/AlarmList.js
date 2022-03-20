@@ -1,12 +1,15 @@
+
 import React, {useState} from 'react';
 import { Image, ScrollView, Text, StyleSheet, View } from 'react-native';
+import React, {Component} from 'react';
+import { Image, ScrollView, Text, StyleSheet, TouchableHighlight} from 'react-native';
 import Alarm from './Alarm';
 import CreateAlarm from './CreateAlarm';
 
 
+  
+
   const AlarmList = () => {
-
-
       return(
           <ScrollView>
           <Alarm time="06:00" AmPm="am"/>
@@ -17,6 +20,7 @@ import CreateAlarm from './CreateAlarm';
           <Alarm time="10:50" AmPm="pm"/>
           <Alarm time="11:00" AmPm="pm"/>
         </ScrollView>
+
       );
 
   };

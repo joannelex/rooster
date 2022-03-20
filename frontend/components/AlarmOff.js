@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import Swipeable from 'react-native-swipeable-row';
 import { 
   StyleSheet, 
   Text, 
@@ -23,14 +24,14 @@ export default function AlarmOff() {
       <TouchableOpacity
           style={styles.topButton}
           //onPress={() => navigate('HomeScreen')}
-          onPress={() => Alert.alert('Top button pressed')} >
+          onPress={() => alert('Top button pressed')} >
           <Text style={styles.buttonText}>awake</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
           style={styles.bottomButton}
           //onPress={() => navigate('HomeScreen')}
-          onPress={() => Alert.alert('Bottom button pressed')} >
+          onPress={() => alert('Bottom button pressed')} >
           <Text style={styles.buttonText}>snooze</Text>
       </TouchableOpacity>
     </SafeAreaView>

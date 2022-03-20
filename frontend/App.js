@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   mainName: {
     fontSize: 23,
-    fontFamily: 'Lato',
+    //fontFamily: 'Lato',
     color: '#DD2C14',
     alignSelf: "flex-end",
     marginHorizontal: "30%",
