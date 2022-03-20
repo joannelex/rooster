@@ -14,7 +14,7 @@ import { StyleSheet,
         Image, 
         TouchableOpacity,} from 'react-native';
 
-const alarms = ['6:27 am', '7:30 am', '8:30 am'];
+const alarms = ['6:50 am', '7:30 am', '8:30 am'];
 const cadd = false;
 // const currTime = this.state.currentTime;
 
@@ -126,14 +126,19 @@ export default class App extends Component {
         <TouchableOpacity
             style={stylesB.topButton}
             //onPress={() => navigate('HomeScreen')}
-            onPress={() => alert('Top button pressed')} >
+            // onPress={() => alert('Top button pressed')} 
+            // onPress={this.renderA}
+            onPress={() => this.renderA() } 
+            >
             <Text style={stylesB.buttonText}>awake</Text>
         </TouchableOpacity>
   
         <TouchableOpacity
             style={stylesB.bottomButton}
             //onPress={() => navigate('HomeScreen')}
-            onPress={() => alert('Bottom button pressed')} >
+            // onPress={() => alert('Bottom button pressed')} 
+            onPress={() => this.renderB() } 
+            >
             <Text style={stylesB.buttonText}>snooze</Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -226,12 +231,12 @@ const stylesB = StyleSheet.create({
     height: 230,
     resizeMode: 'contain',
     position: 'absolute',
-    marginTop: 250,
+    marginTop: 300,
     alignSelf: 'center',
 
   },
   text: {
-    marginTop: 15,
+    marginTop: 50,
     color: 'white', 
     fontSize: 45, 
     alignSelf: 'flex-start',
@@ -239,7 +244,7 @@ const stylesB = StyleSheet.create({
   },
   topButton:{
     backgroundColor: '#FFCA05',
-    marginTop: 350,
+    marginTop: 310,
     width: '30%',
     height: '3%',
     borderRadius:60,
