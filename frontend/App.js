@@ -14,7 +14,7 @@ import { StyleSheet,
         Image, 
         TouchableOpacity,} from 'react-native';
 
-const alarms = ['6:50 am', '7:30 am', '8:30 am'];
+const alarms = ['7:11 am', '7:30 am', '8:30 am'];
 const cadd = false;
 // const currTime = this.state.currentTime;
 
@@ -84,7 +84,6 @@ export default class App extends Component {
   }
 
 
-
   componentWillUnmount() {
     clearInterval();
   }
@@ -126,9 +125,11 @@ export default class App extends Component {
         <TouchableOpacity
             style={stylesB.topButton}
             //onPress={() => navigate('HomeScreen')}
-            // onPress={() => alert('Top button pressed')} 
+            onPress={() => alert('Wake Up !')} 
             // onPress={this.renderA}
-            onPress={() => this.renderA() } 
+            // onPress={() => this.renderA()} 
+            // onPress={() => this.renderA()} 
+
             >
             <Text style={stylesB.buttonText}>awake</Text>
         </TouchableOpacity>
@@ -136,8 +137,8 @@ export default class App extends Component {
         <TouchableOpacity
             style={stylesB.bottomButton}
             //onPress={() => navigate('HomeScreen')}
-            // onPress={() => alert('Bottom button pressed')} 
-            onPress={() => this.renderB() } 
+            onPress={() => alert('cock-a-doodle-do in 5 min')} 
+            // onPress={() => this.renderA() } 
             >
             <Text style={stylesB.buttonText}>snooze</Text>
         </TouchableOpacity>
@@ -150,7 +151,6 @@ export default class App extends Component {
     let Min = new Date().getMinutes();
     let AmPm = 'pm';
     if (new Date().getHours() < 12) { AmPm = 'am'; }
-
     const currTime = Hr + ':' + Min + ' ' + AmPm;
 
     // let currAlarm = alarms[0];
@@ -181,6 +181,7 @@ const stylesA = StyleSheet.create({
     alignSelf: "flex-end",
     marginHorizontal: "5%",
     marginTop:"15%",
+
   },
   mainName: {
     fontSize: 23,
