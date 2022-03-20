@@ -24,6 +24,8 @@ target 'Rooster' do
 
   pod 'react-native-background-timer', :path => '../node_modules/react-native-background-timer'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   post_install do |installer|
     react_native_post_install(installer)
 
