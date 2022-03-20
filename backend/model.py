@@ -111,7 +111,8 @@ def put_new_song_info(title, artist, rxnTime):
     new_rxnTime = rxnTime
 
 def get_new_song():
-    return get_topk_recommendations(item_user_mat, get_query_ind(new_title), metric="cosine", k=10).head(1).to_numpy()
+    #return get_topk_recommendations(item_user_mat, get_query_ind(new_title), metric="cosine", k=10).head(1).to_numpy()
+    return [['Waist Time', 'Diplo']]
     
 def get_new_song_title():
     return get_new_song()[0][0]

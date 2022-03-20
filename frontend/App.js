@@ -8,8 +8,8 @@ import songs from './tracks/songs.js'
 
 export default function App() {
   const [sound, setSound] = React.useState();
-  const [title, setTitle] = React.useState("Check");
-  const [artist, setArtist] = React.useState("Young_Thug");
+  const [title, setTitle] = React.useState("Lyric_Pieces_Book_I_Op_12_I_Arietta"); //
+  const [artist, setArtist] = React.useState("Edvard_Grieg"); //
 
   async function soundPlay() {
     console.log(title + " " + artist)
@@ -20,21 +20,20 @@ export default function App() {
       setSound(sound);
       console.log('Playing Sound');
       await sound.playAsync();
-      sound.setPositionAsync(30000)
+      sound.setPositionAsync(55000)
 
       await getNewMusic(3)
   }
 
   function getNewMusic(rxnTime) {
-    console.log(`http://127.0.0.1:5000/get/${title}/${artist}/${rxnTime}`)
     fetch(`http://127.0.0.1:5000/get/${title}/${artist}/${rxnTime}`, {
       method: 'GET'
     })
     .then(resp => resp.json())
     .then(data => {
       console.log(data)
-      setTitle(data.title)
-      setArtist(data.artist)
+      setTitle(data.title.replace(" ", "_"))
+      setArtist(data.artist.replace(" ", "_"))
     })
     .catch((error) => {
       console.error('Error:', error);
