@@ -11,7 +11,50 @@ import {
 import React from 'react';
 
 
+
 const AlarmOff = () => {
+
+const [sound, setSound] = React.useState();
+const [title, setTitle] = React.useState("Lyric_Pieces_Book_I_Op_12_I_Arietta"); 
+const [artist, setArtist] = React.useState("Edvard_Grieg");
+
+async function soundPlay() {
+  console.log(title + " " + artist)
+  console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+      songs[title + artist]
+    );
+    setSound(sound);
+    console.log('Playing Sound');
+    await sound.playAsync();
+    sound.setPositionAsync(55000)
+
+    await getNewMusic(3)
+}
+
+React.useEffect(() => {
+  return sound
+    ? () => {
+        console.log('Unloading Sound');
+        sound.unloadAsync(); }
+    : undefined;
+}, [sound]);
+
+async function getNewMusic(rxnTime) {
+  fetch(`http://127.0.0.1:5000/get/${title}/${artist}/${rxnTime}`, {
+    method: 'GET'
+  })
+  .then(resp => resp.json())
+  .then(data => {
+    console.log(data)
+    setTitle(data.title.replace(" ", "_"))
+    setArtist(data.artist.replace(" ", "_"))
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  })
+}
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>  </Text>
@@ -24,7 +67,7 @@ const AlarmOff = () => {
       <TouchableOpacity
           style={styles.topButton}
           //onPress={() => navigate('HomeScreen')}
-          onPress={() => alert('Top button pressed')} >
+          onPress={() => sound.unloadAsync()} >
           <Text style={styles.buttonText}>awake</Text>
       </TouchableOpacity>
 
