@@ -18,7 +18,7 @@ new_artist = ""
 new_rxnTime = 0
 
 # read spotify data and store as dataframe
-spotify_df = pd.read_csv("spotify.csv")
+spotify_df = pd.read_csv("backend/spotify.csv")
 
 # separate dataframe into features and labels
 features = spotify_df.drop(columns = ["song_title", "artist"])

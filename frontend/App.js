@@ -7,11 +7,12 @@ import { Audio } from 'expo-av';
 import songs from './tracks/songs.js'
 
 export default function App() {
-
   const [sound, setSound] = React.useState();
+  const [title, setTitle] = React.useState("Check");
+  const [artist, setArtist] = React.useState("Young_Thug");
 
-  async function soundPlay(title, artist) {
-
+  async function soundPlay() {
+    console.log(title + " " + artist)
     console.log('Loading Sound');
       const { sound } = await Audio.Sound.createAsync(
         songs[title + artist]
@@ -19,6 +20,25 @@ export default function App() {
       setSound(sound);
       console.log('Playing Sound');
       await sound.playAsync();
+      sound.setPositionAsync(30000)
+
+      await getNewMusic(3)
+  }
+
+  function getNewMusic(rxnTime) {
+    console.log(`http://127.0.0.1:5000/get/${title}/${artist}/${rxnTime}`)
+    fetch(`http://127.0.0.1:5000/get/${title}/${artist}/${rxnTime}`, {
+      method: 'GET'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data)
+      setTitle(data.title)
+      setArtist(data.artist)
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    })
   }
 
   React.useEffect(() => {
@@ -35,7 +55,7 @@ export default function App() {
       <Image style={styles.mainLogo} source={require('./assets/rooster.png')} />
       </TouchableOpacity>
       <Text style={styles.mainName}>rooster.</Text>
-      <Button title="TEST" onPress={() => soundPlay("Check", "Young_Thug")}></Button>
+      <Button title="TEST" onPress={() => soundPlay()}></Button>
       <StatusBar style="auto" />
       <AlarmList />
       <AddAlarm />
