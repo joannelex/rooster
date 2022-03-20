@@ -1,23 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import AlarmList from './components/AlarmList';
 import AddAlarm from './components/AddAlarm';
+
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, AppRegistry, Platform } from 'react-native';
-
-// export default function App() {
-
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <TouchableOpacity  >
-//       <Image style={styles.mainLogo} source={require('./assets/rooster.png')} />
-//       </TouchableOpacity>
-//       <Text style={styles.mainName}>rooster.</Text>
-//       <StatusBar style="auto" />
-//       <AlarmList />
-//       <AddAlarm />
-//     </SafeAreaView>
-//   );
-// } 
 
 export default class App extends Component {
   constructor() {
