@@ -1,31 +1,7 @@
 # import libraries
-import pickle
-import requests
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import xgboost as xgb
-from sklearn.cluster import KMeans
-from catboost import CatBoostClassifier
-from lightgbm.sklearn import LGBMClassifier
-from sklearn.tree import DecisionTreeClassifier
-from xgboost import XGBClassifier
-from sklearn.compose import ColumnTransformer, make_column_transformer
-from sklearn.dummy import DummyClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.impute import SimpleImputer
-from sklearn.impute import KNNImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (
-    classification_report,
-    confusion_matrix,
-    f1_score,
-    recall_score,
-    precision_score,
-    make_scorer,
-    plot_confusion_matrix,
-)
 from sklearn.model_selection import (
     GridSearchCV,
     RandomizedSearchCV,
@@ -33,18 +9,6 @@ from sklearn.model_selection import (
     cross_validate,
     train_test_split,
 )
-from sklearn.pipeline import Pipeline, make_pipeline
-from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn import cluster, datasets, metrics
-from sklearn.compose import ColumnTransformer, make_column_transformer
-from sklearn.datasets import make_blobs
-from sklearn.decomposition import PCA
-from sklearn.pipeline import Pipeline, make_pipeline
-from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import NearestNeighbors
 plt.style.use("seaborn")
 
