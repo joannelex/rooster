@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import AlarmList from './components/AlarmList';
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, LayoutAnimation } from 'react-native';
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
       </TouchableOpacity>
       <Text style={styles.mainName}>rooster.</Text>
       <StatusBar style="auto" />
+      <AlarmList />
     </SafeAreaView>
   );
 } 
@@ -37,8 +39,9 @@ const styles = StyleSheet.create({
     // marginTop:"5%",
     position: 'absolute',
     paddingRight: "20%", 
-    paddingTop: 35, 
+    paddingTop: 60, 
 
   },
 
 });
+
