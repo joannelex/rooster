@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, SafeAreaView, Text, View, StyleSheet } from 'react-native';
 import AlarmSwitch from './AlarmSwitch';
 
-const Alarm = () => {
+const Alarm = (props) => {
 
     return(
         <SafeAreaView style={styles.container}>
@@ -10,7 +10,8 @@ const Alarm = () => {
             <View style={styles.ToggleView}>
             <AlarmSwitch /> 
             </View>
-            <Text style={styles.TextTime}>09:00 {'\n'}am</Text>
+            
+            <Text style={styles.TextTime}>{props.time} {'\n'}{props.AmPm}</Text>
             </ SafeAreaView>
         </SafeAreaView>
 
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       alignItems: "flex-start", 
       },
-      
+
     ToggleView: {
         alignSelf: 'center',
         width: "10%",

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import AlarmTextInput  from "./AlarmTextInput";
+import Alarm from './Alarm'
 
 const CreateAlarm = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [alarm, setAlarm] = useState([<Alarm />, <Alarm />, <Alarm />]);
+  
   return (
     <View style={styles.centeredView}>
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -17,20 +22,24 @@ const CreateAlarm = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Input Alarm</Text>
+            <Text style={styles.textHMAmPm}>Hour          Mins     </Text>
 
             <Pressable
-              style={[styles.button, styles.buttonClose]}
+              style={[styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
               <Text style={styles.textStyleClose}>X</Text>
             </Pressable>
+            <AlarmTextInput />
 
           </View>
         </View>
       </Modal>
+
       <Pressable
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}
+        onPressIn={() => setAlarm([...alarm, <Alarm/>])}
       >
         <Text style={styles.textStyle}>+</Text>
       </Pressable>
@@ -77,6 +86,13 @@ const styles = StyleSheet.create({
   buttonClose: {
     backgroundColor: "#156775",
     opacity: 0.75,
+    alignSelf: "flex-start",
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 50,
+    height: 50, 
+    margin: 30,
+    position: "absolute",
   },
   textStyle: {
     fontSize: 45,
@@ -87,7 +103,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   textStyleClose: {
-    fontSize: 45,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
     alignSelf: 'center',
@@ -99,7 +115,17 @@ const styles = StyleSheet.create({
     textAlign: "center", 
     color: "#DD2C14",
     
-  }
+  }, 
+  textHMAmPm: {
+    position: "absolute",
+    marginBottom: 15,
+    textAlign: "center", 
+    color: "#DD2C14",
+    paddingTop: 70,
+    paddingRight: 50,
+
+    
+  },
 });
 
 export default CreateAlarm;

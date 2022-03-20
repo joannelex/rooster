@@ -15,7 +15,6 @@ export default function App() {
       <Text style={styles.mainName}>rooster.</Text>
       <StatusBar style="auto" />
       <AlarmList />
-    
       <CreateAlarm />
     </SafeAreaView>
   );
