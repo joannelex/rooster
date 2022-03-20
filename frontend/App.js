@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import * as React from 'react';
 import AlarmList from './components/AlarmList';
 import AddAlarm from './components/AddAlarm';
 import CreateAlarm from './components/CreateAlarm';
@@ -6,6 +7,8 @@ import AlarmOff from './components/AlarmOff';
 import React, {Component} from 'react';
 import { NativeRouter, Route, Link, Routes } from 'react-router-native';
 import Swipeable from 'react-native-swipeable-row';
+import { Audio } from 'expo-av';
+import songs from './tracks/songs.js'
 
 import { StyleSheet, 
         Text, 
@@ -14,8 +17,13 @@ import { StyleSheet,
         Image, 
         TouchableOpacity,} from 'react-native';
 
+
+
 const alarms = ['7:11 am', '7:30 am', '8:30 am'];
 const cadd = false;
+const [sound, setSound] = React.useState();
+ const [title, setTitle] = React.useState("Lyric_Pieces_Book_I_Op_12_I_Arietta"); //
+ const [artist, setArtist] = React.useState("Edvard_Grieg");
 // const currTime = this.state.currentTime;
 
 // const Child = forwardRef((props, ref) => {
@@ -92,6 +100,43 @@ export default class App extends Component {
     this.timer = setInterval(() => {
       this.getCurrentTime();
     }, 1000);
+  }
+  
+  async soundPlay() {
+    console.log(title + " " + artist)
+    console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync(
+        songs[title + artist]
+      );
+      setSound(sound);
+      console.log('Playing Sound');
+      await sound.playAsync();
+      sound.setPositionAsync(55000)
+
+      await getNewMusic(3)
+  }
+  
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+  
+  async getNewMusic(rxnTime) {
+    fetch(`http://127.0.0.1:5000/get/${title}/${artist}/${rxnTime}`, {
+      method: 'GET'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data)
+      setTitle(data.title.replace(" ", "_"))
+      setArtist(data.artist.replace(" ", "_"))
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    })
   }
 
   renderA() {

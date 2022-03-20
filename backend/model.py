@@ -51,7 +51,7 @@ def create_Y_from_ratings(data, N, M):
     for index, val in data.iterrows():
         n = user_mapper[val[user_key]]
         m = item_mapper[val[item_key]]
-        Y[n, m] = val["like"]
+        Y[n, m] = val["energy"]
 
     return Y
 
@@ -93,11 +93,8 @@ def get_topk_recommendations(X, query_ind, metric="cosine", k=10):
     neigh_ind = np.delete(neigh_ind, np.where(query_ind == query_ind))
     recs = [id_song_map[item_inverse_mapper[i]] for i in neigh_ind]
     rec_artists = pd.DataFrame([spotify_df[spotify_df.track_id == i]["artist"].values[0] for i in neigh_ind])
-    #print("Query song: ", id_song_map[query_idx], " - ", spotify_df[spotify_df.track_id == query_idx]["artist"].values[0])
-
     recs = pd.DataFrame(data=recs)
     recs = pd.concat([recs, rec_artists], axis=1)
-    #recs.columns = ["Top Recommendations", "Artist"]
     return recs
 
 def get_query_ind(title):
@@ -114,7 +111,8 @@ def put_new_song_info(title, artist, rxnTime):
     new_rxnTime = rxnTime
 
 def get_new_song():
-    return get_topk_recommendations(item_user_mat, get_query_ind(new_title), metric="cosine", k=10).head(1).to_numpy()
+    #return get_topk_recommendations(item_user_mat, get_query_ind(new_title), metric="cosine", k=10).head(1).to_numpy()
+    return [['Waist Time', 'Diplo']]
     
 def get_new_song_title():
     return get_new_song()[0][0]
