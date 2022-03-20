@@ -1,30 +1,31 @@
-import React from 'react';
-import { Image, ScrollView, Text, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import { Image, ScrollView, Text, StyleSheet, TouchableHighlight} from 'react-native';
 import Alarm from './Alarm';
+
+  
 
   const AlarmList = () => {
       return(
-        <ScrollView>
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-          <Alarm />
-        </ScrollView>
-
+          <ScrollView>
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            {/* <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm />
+            <Alarm /> */}
+          </ScrollView>
       );
 
   };

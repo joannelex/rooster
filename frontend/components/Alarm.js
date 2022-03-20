@@ -1,10 +1,22 @@
 import React from 'react';
-import { Image, SafeAreaView, Text, View, StyleSheet } from 'react-native';
+import { Image, SafeAreaView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import AlarmSwitch from './AlarmSwitch';
+import Swipeable from 'react-native-swipeable-row';
+
+
 
 const Alarm = () => {
 
     return(
+      <Swipeable 
+        rightButtons = {[
+            <TouchableOpacity style={[styles.deleteButton, {backgroundColor: '#156775'}]}>
+              <Text style={styles.buttonText}>delete</Text>
+            </TouchableOpacity>,
+            <TouchableOpacity style={[styles.deleteButton, {backgroundColor: '#FFCA05'}]}>
+              <Text style={styles.buttonText}>close</Text>
+            </TouchableOpacity>
+      ]}>
         <SafeAreaView style={styles.container}>
             <SafeAreaView style={styles.RectangleShape}>
             <View style={styles.ToggleView}>
@@ -13,7 +25,7 @@ const Alarm = () => {
             <Text style={styles.TextTime}>09:00 {'\n'}am</Text>
             </ SafeAreaView>
         </SafeAreaView>
-
+      </Swipeable>
     );
 };
 
@@ -55,8 +67,19 @@ const styles = StyleSheet.create({
         paddingLeft: 160,
         position: 'absolute',
         
-    }
-
+    },
+    deleteButton:{
+      flex: 1,
+      justifyContent: 'center',
+      width: '20%',
+      height: '10%',
+      marginTop: 22,
+    },
+    buttonText: {
+      color: 'white', 
+      fontSize: 13, 
+      alignSelf: 'center',
+    },
       
   
   });
