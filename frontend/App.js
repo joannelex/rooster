@@ -17,7 +17,7 @@ import { StyleSheet,
 
 
 
-const alarms = ['9:18 am', '9:19 am', '8:30 am'];
+const alarms = ['8:49 pm', '8:50 pm', '8:30 am'];
 const cadd = false;
 var stopped = false;
 var played = false;
@@ -124,6 +124,8 @@ export default class App extends React.Component {
     let Hr = new Date().getHours();
     let Min = new Date().getMinutes();
     let AmPm = 'pm';
+    if (Hr > 12) { Hr = Hr - 12; }
+    if (Hr == 0) { Hr = 12; }
     if (new Date().getHours() < 12) { AmPm = 'am'; }
     const currTime = Hr + ':' + Min + ' ' + AmPm;
     if (mins < Min) {
