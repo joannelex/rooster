@@ -9,6 +9,5 @@ Rooster is a personalized alarm system—it utilizes a machine learning backend 
 # How we built it
 Rooster is built with a Python ML Model + Flask, React Native frontend powered by Expo CLI and REST API's.
 
-# What's next for rooster.
-sloth.
-
+# How to install
+Will be released when the project is finalized.
